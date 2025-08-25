@@ -1,0 +1,223 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* --- CYBERPUNK NEON THEME --- */
+  --background: #050510; /* Rich black with a subtle blue hue */
+  --foreground: #f8faff; /* Crisp white for high readability */
+  --card: rgba(255, 255, 255, 0.06); /* Frosted glass cards */
+  --card-foreground: #f8faff;
+  --popover: rgba(255, 255, 255, 0.08);
+  --popover-foreground: #f8faff;
+  --primary: #00e5ff; /* Vibrant cyan */
+  --primary-foreground: #050510;
+  --secondary: #b74bff; /* Bright electric purple */
+  --secondary-foreground: #f8faff;
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: #b0b6c8;
+  --accent: #ff0099; /* Neon pink accent */
+  --accent-foreground: #050510;
+  --destructive: #ff0033; /* Vibrant red for destructive actions */
+  --destructive-foreground: #f8faff;
+  --border: rgba(0, 229, 255, 0.3);
+  --input: rgba(255, 255, 255, 0.07);
+  --ring: rgba(0, 229, 255, 0.7);
+  --chart-1: #00e5ff;
+  --chart-2: #b74bff;
+  --chart-3: #ff0099;
+  --chart-4: #32ff7e; /* Neon green for contrast */
+  --chart-5: #f9ff00; /* Electric yellow */
+  --radius: 0.9rem; /* Slightly rounder edges */
+  --sidebar: rgba(10, 10, 20, 0.85);
+  --sidebar-foreground: #f8faff;
+  --sidebar-primary: #00e5ff;
+  --sidebar-primary-foreground: #050510;
+  --sidebar-accent: #b74bff;
+  --sidebar-accent-foreground: #f8faff;
+  --sidebar-border: rgba(183, 75, 255, 0.4);
+  --sidebar-ring: rgba(0, 229, 255, 0.7);
+}
+
+.dark {
+  /* Dark mode stays consistent */
+  --background: #050510;
+  --foreground: #f8faff;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-foreground: #f8faff;
+  --popover: rgba(255, 255, 255, 0.08);
+  --popover-foreground: #f8faff;
+  --primary: #00e5ff;
+  --primary-foreground: #050510;
+  --secondary: #b74bff;
+  --secondary-foreground: #f8faff;
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: #b0b6c8;
+  --accent: #ff0099;
+  --accent-foreground: #050510;
+  --destructive: #ff0033;
+  --destructive-foreground: #f8faff;
+  --border: rgba(0, 229, 255, 0.3);
+  --input: rgba(255, 255, 255, 0.07);
+  --ring: rgba(0, 229, 255, 0.7);
+  --chart-1: #00e5ff;
+  --chart-2: #b74bff;
+  --chart-3: #ff0099;
+  --chart-4: #32ff7e;
+  --chart-5: #f9ff00;
+  --sidebar: rgba(10, 10, 20, 0.85);
+  --sidebar-foreground: #f8faff;
+  --sidebar-primary: #00e5ff;
+  --sidebar-primary-foreground: #050510;
+  --sidebar-accent: #b74bff;
+  --sidebar-accent-foreground: #f8faff;
+  --sidebar-border: rgba(183, 75, 255, 0.4);
+  --sidebar-ring: rgba(0, 229, 255, 0.7);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* --- Neon Effects --- */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes slide-in-glow {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+  }
+}
+
+.glow-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+              linear-gradient(45deg, #00e5ff, #b74bff, #ff0099) border-box;
+  border-radius: var(--radius-lg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-border:hover {
+  animation: glow-pulse 2s infinite;
+  transform: translateY(-3px);
+}
+
+.neon-text {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  animation: neon-flicker 2.5s infinite alternate;
+}
+
+.glassmorphism {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: linear-gradient(90deg, #00e5ff, #b74bff);
+  color: #050510;
+  font-weight: bold;
+  border-radius: var(--radius-md);
+}
+
+.cyber-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-button:hover::before {
+  left: 120%;
+}
+
+.fade-in-up {
+  animation: slide-in-glow 0.6s ease-out forwards;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 25% 80%, rgba(0, 229, 255, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 75% 20%, rgba(183, 75, 255, 0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 50% 50%, rgba(255, 0, 153, 0.06) 0%, transparent 50%);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00e5ff, #b74bff);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff0099, #00e5ff);
+  }
+}
