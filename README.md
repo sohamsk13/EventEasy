@@ -4,6 +4,9 @@ It is built with a **modern full-stack tech stack**, focusing on **secure authen
 
 ---
 
+https://github.com/user-attachments/assets/a28fdf55-5224-42ff-aaac-50303ee99f72
+
+
 ## 🛠️ Tech Stack
 
 | Layer | Technology |
